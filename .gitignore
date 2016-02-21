@@ -1,0 +1,9 @@
+.ssl
+.idea
+.env
+dev/*.{crt|key}
+node_modules
+.DS_Store
+npm-debug.log
+config/nginx.conf
+.awspublish-kwmft

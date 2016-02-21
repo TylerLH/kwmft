@@ -1,0 +1,114 @@
+$font-family-sans-serif: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Colors
+$brand-primary: #01A2A6;
+$brand-info   : #29D9C2;
+$brand-success: #BDF271;
+
+// Footer Vars
+$footer-min-height: 300px;
+
+@import "bootstrap/scss/bootstrap";
+
+#home-carousel {
+  .carousel-indicators {
+    li { margin: 1px 3px; }
+  }
+
+  .carousel-caption {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    bottom: 0;
+    left: inherit;
+    right: inherit;
+    width: 100%;
+  }
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+    min-height: 280px;
+  }
+}
+
+.main-content {
+  margin: 4em 0;
+}
+
+.schedule-consultation {
+  background: url('/images/pattern2.svg') no-repeat;
+}
+
+.quick-contact {
+  position: relative;
+
+  .message-sent,
+  .message-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.footer-container {
+  background-color: darken($gray-dark, 10%);
+  min-height: $footer-min-height;
+}
+
+.footer-content {
+  color: $gray-lighter;
+}
+
+.footer-section {
+  min-height: 350px;
+  margin-bottom: 2em;
+  .header {
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+  }
+}
+
+.footer-bottom {
+  margin: 2em auto;
+  color: $gray-light;
+}
+
+.post-list-item {
+  .title {
+    font-size: 1.2em;
+  }
+
+  .excerpt {
+    color: $gray-lighter;
+    font-size: .9em;
+  }
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* always present */
+.fade-transition {
+  transition: all .3s ease;
+  opacity: 1;
+}
+
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.fade-enter, .fade-leave {
+  opacity: 0;
+}

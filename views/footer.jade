@@ -1,0 +1,76 @@
+// Website Footer
+footer#footer.footer-container.p-t-3
+  .container.footer-content
+    .row
+      // Contact Form Section
+      .col-md-4.footer-section
+        h4.header Contact Katherine
+        .quick-contact
+          template(v-if="messageSent")
+            .text-xs-center.message-sent
+              p.icon.icon-check-circle.icon-5x.text-success
+              h4 Message Sent!
+              p You should receive a response shortly.
+              button.btn.btn-link(v-on:click="reset") Send another message
+          template(v-else)
+            form.message-form(transition="fade", v-on:submit.prevent="onSubmit", name="contact", method="POST", action="/contact")
+              .form-group
+                label.sr-only(for="name") Name
+                input.form-control(v-model="name", name="name", placeholder="Your name", required)
+              .form-group
+                label.sr-only(for="email") Email Address
+                input.form-control(v-model="email", type="email", name="email", placeholder="Your email address", required)
+              .form-group
+                label.sr-only(for="message") Message
+                textarea.form-control(v-model="message", rows="4", placeholder="Enter your message", required)
+              button.btn.btn-primary.btn-block(v-el:submitBtn, type="submit")
+                span(v-if="isLoading") Sending Message...
+                span(v-else) Send Message
+      .col-md-4.footer-section
+        h4.header Find Katherine
+        address
+          strong Katherine Warner, MA, MFT
+          br
+          | 451 Lytton Avenue
+          br
+          | Palo Alto, CA 94301
+          br
+          a(href="https://www.google.com/maps/dir/Current+Location/451+Lytton+Ave+Palo+Alto+CA") Directions
+          
+        address
+          .icon.icon-phone-btm.icon-fw
+          |  
+          a(href="tel:+1650-308-4491", target="_blank") 650-308-4491
+          br
+          .icon.icon-envelope-btm.icon-fw
+          |  
+          a(href="mailto:info@kwmft.com", target="_blank") info@kwmft.com
+          br
+          .icon.icon-facebook-official.icon-fw
+          |  
+          a(href="https://www.facebook.com/KatherineWarnerMFT", target="_blank") Katherine on Facebook
+        .embed-container
+          iframe(
+            width="600"
+            height="450"
+            frameborder="0"
+            style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAAPgvOtr3tUp06NFKCm3nd2OL7ap4mJV0&q=451+Lytton+Ave+Palo+Alto+CA"
+            allowfullscreen
+          )
+      .col-md-4.footer-section
+        h4.header Latest Blog Posts
+        .latest-blog-posts
+          .post-list
+            if posts
+              for post in posts
+                .post-list-item
+                  a.title(href="#{post.link}", title="#{post.title.rendered}", target="_blank")=post.title.rendered
+                  .excerpt!= post.excerpt.snippet
+                  .read-more.text-xs-right
+                    a(href="#{post.link}", title="#{post.title.rendered}", target="_blank") Read More
+    .footer-bottom
+      .copyright
+        p Copyright #{new Date().getFullYear()} Katherine Warner, MFT
+      .disclaimer 
+        small The information on any area or page of this site is intended for information purposes only regarding an available clinical service. The diagnosis or treatment of any particular disorder by the information provided on this website, or the links referred to by this website, is not recommended, intended, nor implied. No therapeutic relationship exists between Katherine Warner, MFT and individuals wishing to e-mail or telephone her for information or to schedule an appointment. A therapeutic relationship, if appropriate, will be agreed upon in writing following an initial consultation. If a psychotherapy relationship is not possible for whatever reason, appropriate referrals may be provided.

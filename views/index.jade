@@ -1,0 +1,51 @@
+extends layout
+
+block content
+
+  // Main carousel
+  #home-carousel.carousel.slide(data-ride="carousel")
+    // Carousel Indicators
+    ol.carousel-indicators
+      each slide, i in slides
+        li(class="#{i == 0 ? 'active' : ''}", data-target="#home-carousel", data-slide-to=i)
+    
+    // Carousel Inner, Slides
+    .carousel-inner(role="listbox")
+      each slide, i in slides
+        .carousel-item(class="#{i == 0 ? 'active' : ''}")
+          img(src=assetUrl(slide.image))
+          .carousel-caption
+            p.display-4= slide.caption.heading
+            p= slide.caption.content
+            
+    // Carousel Arrow Controls
+    a.left.carousel-control(href="#home-carousel", role="button", data-slide="prev")
+      span.icon-prev(aria-hidden="true")
+      span.sr-only Previous
+    a.right.carousel-control(href="#home-carousel", role="button", data-slide="next")
+      span.icon-next(aria-hidden="true")
+      span.sr-only Next
+  
+  // Main page content
+  .container
+    .m-y-3
+      .row
+        .col-md-4
+          img.img-circle(src=assetUrl("images/katherine.jpg"))
+        .col-md-8
+          h1 Help when you need it.
+          p.lead Katherine is a licensed marriage and family therapist based in Palo Alto, California, providing counseling & therapy services for individuals, couples, and families in the Bay Area.
+          a.btn.btn-primary-outline.btn-lg(href="/about") Learn More
+          |  
+          a.btn.btn-info.btn-lg.btn-schedule-consultation(href="#", data-scroll-to-element, data-target="#bookingjs") Schedule a Free Consultation
+        
+  .schedule-consultation.p-y-3
+    .container.text-xs-center
+      h2 Schedule a Free Consultation
+      p Have a brief conversation with Katherine and find out if her services are a good fit for you.
+      p Consultations are via phone or video chat, and typically last about 20 minutes.
+      #bookingjs
+      
+block scripts
+  script(src="https://dbhpllgef527b.cloudfront.net/booking-js/v1/booking.min.js")
+  script(src=assetUrl("javascripts/home.js"))
