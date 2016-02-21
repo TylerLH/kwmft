@@ -10,7 +10,6 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const assetManifest = require('./cdn/rev-manifest.json');
 const assetUrl = require('./helpers/assetUrl');
 
 const routes = require('./routes/index');
