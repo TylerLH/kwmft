@@ -21,6 +21,7 @@ const awspublish  = require('gulp-awspublish');
 const RevAll      = require('gulp-rev-all');
 const cloudfront  = require('gulp-cloudfront');
 const del         = require('del');
+const git         = require('gulp-git');
 
 const LR_PORT = 35729;
 const PATHS = {
@@ -145,4 +146,5 @@ gulp.task('assets', ['js', 'sass']);
 gulp.task('assets:prepublish', ['assets:clean', 'assets'], prepublishAssets);
 gulp.task('assets:publish', publishAssets);
 gulp.task('assets:clean', clean);
+gulp.task('assets:deploy', ['assets:clean', 'assets', 'assets:prepublish', 'assets:publish']);
 gulp.task('default', ['dev-server', 'js', 'sass', 'watch']);
