@@ -29,6 +29,16 @@ $footer-min-height: 300px;
   }
 }
 
+.brand-container {
+  width: 100%;
+  .navbar-brand {
+    float: left;
+  }
+  .navbar-toggler {
+    float: right;
+  }
+}
+
 .main-content {
   margin: 4em 0;
 }

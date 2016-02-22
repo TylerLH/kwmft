@@ -14,7 +14,7 @@ const getFooterBlogPosts = require('../middleware/getFooterBlogPosts');
 
 // Gets a list of blog posts for each GET request on this router
 // The posts are displayed in the site footer
-router.use(getFooterBlogPosts);
+router.all('/', getFooterBlogPosts);
 
 /* GET home page. */
 router.get('/', homepage);

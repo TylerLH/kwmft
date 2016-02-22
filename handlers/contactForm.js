@@ -1,3 +1,5 @@
+'use strict';
+
 const escape = require('lodash/escape');
 const mailer = require('../lib/mailer');
 
@@ -43,6 +45,8 @@ module.exports = function(req, res, next) {
   const html = renderMessageHTML(data);
   const text = renderMessageText(data);
 
+  console.log('Sending contact message');
+
   mailer.sendMail({
     to: 'info@kwmft.com',
     from: 'info@kwmft.com',
@@ -51,7 +55,10 @@ module.exports = function(req, res, next) {
     html: html,
     text: text
   }, function(err, info) {
-    if (err) return next(err);
+    if (err) {
+      console.log(err);
+      return next(err);
+    }
     res.sendStatus(201);
   })
 }

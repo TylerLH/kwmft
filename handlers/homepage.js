@@ -1,3 +1,5 @@
+'use strict';
+
 // Site homepage
 
 module.exports = function(req, res) {

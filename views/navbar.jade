@@ -6,13 +6,19 @@ mixin nav-link(url, title)
         block
       else
         | #{title}
+      if isActive
+        span.sr-only (current)
 
 // Website Navigation
 nav.navbar.navbar-static-top.navbar-light.bg-faded
-  a.navbar-brand(href="/") Katherine Warner, MA, MFT
-  ul.nav.navbar-nav
-    +nav-link('/', 'Home')
-    +nav-link('/about', 'About')
-    +nav-link('/services', 'Services')
-    +nav-link('#footer', 'Contact')(class='contact-link')
-    +nav-link('//blog.kwmft.com', 'Blog')
+  .brand-container.clearfix
+    a.navbar-brand(href="/") Katherine Warner, MA, MFT
+    button.navbar-toggler.hidden-sm-up(type='button', data-toggle='collapse', data-target='#collapsingNavbar')
+      | ☰
+  #collapsingNavbar.collapse.navbar-toggleable-xs
+    ul.nav.navbar-nav
+      +nav-link('/', 'Home')
+      +nav-link('/about', 'About')
+      +nav-link('/services', 'Services')
+      +nav-link('#footer', 'Contact')(class='contact-link')
+      +nav-link('//blog.kwmft.com', 'Blog')

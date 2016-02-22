@@ -3,7 +3,7 @@ extends layout
 block content
 
   // Main carousel
-  #home-carousel.carousel.slide(data-ride="carousel")
+  #home-carousel.carousel.slide.hidden-sm-down(data-ride="carousel")
     // Carousel Indicators
     ol.carousel-indicators
       each slide, i in slides
@@ -30,7 +30,7 @@ block content
   .container
     .m-y-3
       .row
-        .col-md-4
+        .col-md-4.hidden-md-down
           img.img-circle(src=assetUrl("images/katherine.jpg"))
         .col-md-8
           h1 Help when you need it.
