@@ -17,7 +17,7 @@ module.exports = function(req, res, next) {
         res.locals.footerBlogPosts.error = "There was a problem getting the latest blog posts!"
         return next();
       }
-      res.locals.posts = _.chain(data.body)
+      res.locals.footerBlogPosts.data = _.chain(data.body)
         .take(MAX_POSTS)
         .map(post => {
           post.excerpt.snippet = _.truncate(post.excerpt.rendered, { length: 120 });
