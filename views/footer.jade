@@ -62,8 +62,10 @@ footer#footer.footer-container.p-t-3
         h4.header Latest Blog Posts
         .latest-blog-posts
           .post-list
-            if posts
-              for post in posts
+            if footerBlogPosts.error
+              p There was a problem getting the latest blog posts! Check back later.
+            else
+              for post in footerBlogPosts.data
                 .post-list-item
                   a.title(href="#{post.link}", title="#{post.title.rendered}", target="_blank")=post.title.rendered
                   .excerpt!= post.excerpt.snippet

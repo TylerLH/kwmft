@@ -11,12 +11,11 @@ mixin nav-link(url, title)
 
 // Website Navigation
 nav.navbar.navbar-static-top.navbar-light.bg-faded
-  .brand-container.clearfix
-    a.navbar-brand(href="/") Katherine Warner, MA, MFT
-    button.navbar-toggler.hidden-sm-up(type='button', data-toggle='collapse', data-target='#collapsingNavbar')
-      | ☰
+  button.navbar-toggler.hidden-sm-up.pull-right(type='button', data-toggle='collapse', data-target='#collapsingNavbar')
+    | ☰
+  a.navbar-brand(href="/") Katherine Warner, MA, MFT
   #collapsingNavbar.collapse.navbar-toggleable-xs
-    ul.nav.navbar-nav
+    ul.nav.navbar-nav.pull-right
       +nav-link('/', 'Home')
       +nav-link('/about', 'About')
       +nav-link('/services', 'Services')
