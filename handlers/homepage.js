@@ -10,12 +10,6 @@ module.exports = function(req, res) {
     },
     slides: [
       {
-        image: 'images/couple.jpg',
-        caption: {
-          heading: 'Couples Counseling'
-        }
-      },
-      {
         image: 'images/teens.jpg',
         caption: {
           heading: 'Teen Counseling'
@@ -25,6 +19,12 @@ module.exports = function(req, res) {
         image: 'images/individual.jpg',
         caption: {
           heading: 'Individual Counseling'
+        }
+      },
+      {
+        image: 'images/couple.jpg',
+        caption: {
+          heading: 'Couples Counseling'
         }
       }
     ]
