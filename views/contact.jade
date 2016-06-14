@@ -58,5 +58,9 @@ block content
                   textarea.form-control(v-model="message", rows="4", placeholder="Enter your message", required)
                 //div#captcha(v-recaptcha, data-sitekey="6Lcdzh4TAAAAAE41AqV4bGUR7Jg2sHv-Cfd9-aIB", style="transform:scale(0.9);transform-origin:0 0")
                 button.btn.btn-primary.btn-block(v-el:submitBtn, type="submit")
-                  span(v-if="isLoading") Sending Message...
-                  span(v-else) Send Message
+                  span(v-if="isLoading")
+                    i.icon.icon-fw.icon-spinner.icon-spin
+                    | Sending Message
+                  span(v-else)
+                    | Send Message 
+                    i.icon.icon-fw.icon-angle-right
