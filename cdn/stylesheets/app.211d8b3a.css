@@ -4612,12 +4612,13 @@ a.bg-danger:focus, a.bg-danger:hover {
   margin: 2em auto;
   color: #818a91; }
 
-.post-list-item .title {
-  font-size: 1.2em; }
-
-.post-list-item .excerpt {
-  color: #eceeef;
-  font-size: .9em; }
+.post-list-item {
+  margin-bottom: 1rem; }
+  .post-list-item .title {
+    font-size: 1.2em; }
+  .post-list-item .excerpt {
+    color: #eceeef;
+    font-size: .9em; }
 
 .embed-container {
   position: relative;
