@@ -2,11 +2,6 @@
 
 Vue.use(VueAsyncData);
 
-$('.contact-link').on('click', function (e) {
-  e.preventDefault();
-  $.scrollTo('#footer', { duration: 500 });
-});
-
 var quickContact = new Vue({
   el: '.quick-contact',
   data: {
@@ -20,6 +15,7 @@ var quickContact = new Vue({
   methods: {
     onSubmit: function onSubmit() {
       this.isLoading = true;
+      // const captcha = grecaptcha.getResponse();
       var name = this.name;
       var email = this.email;
       var message = this.message;
@@ -36,7 +32,7 @@ var quickContact = new Vue({
     },
     onMessageFail: function onMessageFail(err) {
       this.isLoading = false;
-      console.log('Error: ', err);
+      this.error = err;
     },
     retry: function retry() {
       this.onSubmit();
@@ -45,7 +41,7 @@ var quickContact = new Vue({
       this.name = '';
       this.email = '';
       this.message = '';
-      this.errors = [];
+      this.error = null;
       this.messageSent = false;
     }
   }

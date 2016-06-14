@@ -8,7 +8,7 @@ block content
         h1 Contact Katherine
       .row
         .col-xs-6
-          h3 Location
+          h4 Location
           address
             strong Katherine Warner, MA, MFT
             br
@@ -35,4 +35,28 @@ block content
               allowfullscreen
             )
         .col-xs-6
-          h2 Get in Touch
+          h4.header Send a Message
+          .quick-contact
+            template(v-if="messageSent")
+              .text-xs-center.message-sent
+                p.icon.icon-check-circle.icon-5x.text-success
+                h4 Message Sent!
+                p You should receive a response shortly.
+                button.btn.btn-link(v-on:click="reset") Send another message
+            template(v-else)
+              .alert.alert-danger(v-if="error")
+                span {{ error.message }}
+              form.message-form(transition="fade", v-on:submit.prevent="onSubmit", name="contact", method="POST", action="/contact")
+                .form-group
+                  label.sr-only(for="name") Name
+                  input.form-control(v-model="name", name="name", placeholder="Your name", required)
+                .form-group
+                  label.sr-only(for="email") Email Address
+                  input.form-control(v-model="email", type="email", name="email", placeholder="Your email address", required)
+                .form-group
+                  label.sr-only(for="message") Message
+                  textarea.form-control(v-model="message", rows="4", placeholder="Enter your message", required)
+                //div#captcha(v-recaptcha, data-sitekey="6Lcdzh4TAAAAAE41AqV4bGUR7Jg2sHv-Cfd9-aIB", style="transform:scale(0.9);transform-origin:0 0")
+                button.btn.btn-primary.btn-block(v-el:submitBtn, type="submit")
+                  span(v-if="isLoading") Sending Message...
+                  span(v-else) Send Message

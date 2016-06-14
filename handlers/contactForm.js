@@ -2,6 +2,7 @@
 
 const escape = require('lodash/escape');
 const mailer = require('../lib/mailer');
+const request = require('superagent');
 
 function renderMessageHTML(data) {
   return `
@@ -35,7 +36,28 @@ function renderMessageText(data) {
   `
 }
 
-module.exports = function(req, res, next) {
+function validateMessage(req, done) {
+  const captchaResponse = req.body.captcha;
+  const captchaSecret = process.env.RECAPTCHA_SECRET;
+
+  if (!captchaResponse) {
+    return done(new Error('No valid captcha response submitted.'));
+  } else {
+    request
+      .post('https://www.google.com/recaptcha/api/siteverify')
+      .send(`secret=${captchaSecret}`)
+      .send(`response=${captchaResponse}`)
+      .end( (err, response) => {
+        if (err) return done(err);
+        if (!response.body.success) {
+          return done(new Error('Invalid captcha response.'));
+        }
+        return done(null)
+      })
+  }
+}
+
+function sendMessage(req, done) {
   const data = {
     name: escape(req.body.name),
     email: escape(req.body.email),
@@ -45,8 +67,6 @@ module.exports = function(req, res, next) {
   const html = renderMessageHTML(data);
   const text = renderMessageText(data);
 
-  console.log('Sending contact message');
-
   mailer.sendMail({
     to: 'info@kwmft.com',
     from: 'info@kwmft.com',
@@ -55,10 +75,28 @@ module.exports = function(req, res, next) {
     html: html,
     text: text
   }, function(err, info) {
-    if (err) {
-      console.log(err);
-      return next(err);
-    }
-    res.sendStatus(201);
+    if (err) return done(err);
+    return done(null);
   })
+}
+
+module.exports = {
+  get: (req, res, next) => {
+    res.render('contact', {
+      meta: {
+        title: 'Contact Information | Katherine Warner, MA, MFT',
+        description: 'Find out where Katherine provides therapy services and send a message.'
+      }
+    })
+  },
+  post: function(req, res, next) {
+    // validateMessage(req, (err) => {
+    //   if (err) return next(err);
+    //
+    // })
+    sendMessage(req, (err) => {
+      if (err) return next(err);
+      return res.sendStatus(201);
+    })
+  }
 }

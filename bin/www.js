@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 var debug = require('debug')('kwmft');
 var app = require('../app');
 

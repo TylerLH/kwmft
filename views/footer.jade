@@ -2,31 +2,7 @@
 footer#footer.footer-container.p-t-3
   .container.footer-content
     .row
-      // Contact Form Section
-      .col-md-4.footer-section
-        h4.header Contact Katherine
-        .quick-contact
-          template(v-if="messageSent")
-            .text-xs-center.message-sent
-              p.icon.icon-check-circle.icon-5x.text-success
-              h4 Message Sent!
-              p You should receive a response shortly.
-              button.btn.btn-link(v-on:click="reset") Send another message
-          template(v-else)
-            form.message-form(transition="fade", v-on:submit.prevent="onSubmit", name="contact", method="POST", action="/contact")
-              .form-group
-                label.sr-only(for="name") Name
-                input.form-control(v-model="name", name="name", placeholder="Your name", required)
-              .form-group
-                label.sr-only(for="email") Email Address
-                input.form-control(v-model="email", type="email", name="email", placeholder="Your email address", required)
-              .form-group
-                label.sr-only(for="message") Message
-                textarea.form-control(v-model="message", rows="4", placeholder="Enter your message", required)
-              button.btn.btn-primary.btn-block(v-el:submitBtn, type="submit")
-                span(v-if="isLoading") Sending Message...
-                span(v-else) Send Message
-      .col-md-4.footer-section
+      .col-md-6.footer-section
         h4.header Find Katherine
         address
           strong Katherine Warner, MA, MFT
@@ -58,7 +34,7 @@ footer#footer.footer-container.p-t-3
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAAPgvOtr3tUp06NFKCm3nd2OL7ap4mJV0&q=451+Lytton+Ave+Palo+Alto+CA"
             allowfullscreen
           )
-      .col-md-4.footer-section
+      .col-md-6.footer-section
         h4.header Latest Blog Posts
         .latest-blog-posts
           .post-list

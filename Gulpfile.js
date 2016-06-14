@@ -77,9 +77,12 @@ gulp.task('sass', () => {
 gulp.task('dev-server', () => {
   nodemon({
     env: { 'NODE_ENV': 'development', 'DEBUG': 'kwmft' },
-    script: './bin/www',
+    script: './bin/www.js',
     ignore: ['node_modules', 'assets', 'public'],
-    ext: 'js jade'
+    ext: 'js jade',
+    execMap: {
+      'js': 'node --debug'
+    }
   });
 });
 

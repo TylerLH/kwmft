@@ -25,7 +25,10 @@ router.get('/about', about);
 // GET services page.
 router.get('/services', services);
 
+// GET contact
+router.get('/contact', contactForm.get);
+
 // POST contact form
-router.post('/contact', contactForm);
+router.post('/contact', contactForm.post);
 
 module.exports = router;

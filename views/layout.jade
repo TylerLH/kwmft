@@ -1,14 +1,23 @@
 doctype html
 html(lang="en")
   head
+    // Required Meta
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(charset="utf-8")
+    meta(http-equiv="x-ua-compatible", content="ie=edge")
+  
+    // Page Title & Search Meta
     title= meta ? meta.title : "Palo Alto Psychotherapy & Counseling | Katherine Warner, MA, MFT"
     meta(name="description", content=meta ? meta.description : "Katherine Warner is a licensed marriage & family therapist based in Palo Alto, CA.")
     meta(name="keywords", content=meta ? meta.keywords : "mountain view therapy, mountain view therapist, palo alto therapy, palo alto therapist, bay area therapy, bay area therapist, teen counseling, couples counseling, couples therapy, palo alto psychotherapist")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
+    
+    // Icons & Fonts
     script(src="https://use.fonticons.com/04f92877.js")
     script(src="https://use.typekit.net/ebk6wsd.js")
     script.
       try{Typekit.load({ async: true });}catch(e){}
+      
+    // Main Styles
     link(rel='stylesheet', href=assetUrl('stylesheets/app.css'))
   body
     include ./navbar.jade
@@ -19,6 +28,7 @@ html(lang="en")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.0/jquery.scrollTo.min.js")
     script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js", integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7", crossorigin="anonymous")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.14/vue.min.js")
+    script(src='https://www.google.com/recaptcha/api.js')
     script(src=assetUrl('javascripts/vendor/vue-async-data.js'))
     script(src=assetUrl('javascripts/app.js'))
     script.
