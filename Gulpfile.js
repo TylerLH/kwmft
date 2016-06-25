@@ -121,7 +121,7 @@ gulp.task('nginx', (done) => {
 function prepublishAssets() {
   const revAll = new RevAll({ dontRenameFile: [/^\/favicon.ico$/g, '.html', /vendor\//g] });
 
-  gulp
+  return gulp
     .src('./public/**/*')
     .pipe(revAll.revision())
     .pipe(gulp.dest('./cdn'))
@@ -132,7 +132,7 @@ function prepublishAssets() {
 function publishAssets() {
   const publisher = awspublish.create(aws);
   const headers = {'Cache-Control': 'max-age=315360000, no-transform, public'};
-  gulp
+  return gulp
     .src('./cdn/**/*')
     .pipe(awspublish.gzip())
     .pipe(publisher.publish(headers))
@@ -146,7 +146,8 @@ function cleanAssets() {
 }
 
 gulp.task('assets', ['js', 'sass']);
+gulp.task('assets:prepublish', prepublishAssets);
 gulp.task('assets:publish', publishAssets);
 gulp.task('assets:clean', cleanAssets);
-gulp.task('assets:deploy', ['assets:clean', 'assets', 'assets:publish']);
+gulp.task('assets:deploy', ['assets:clean', 'assets', 'assets:prepublish', 'assets:publish']);
 gulp.task('default', ['dev-server', 'js', 'sass', 'watch']);
