@@ -1,8 +1,5 @@
 {
   "favicon.ico": "favicon.ico",
-  "javascripts/app.js": "javascripts/app.f2e17d32.js",
-  "javascripts/home.js": "javascripts/home.fc3da4b4.js",
-  "stylesheets/app.css": "stylesheets/app.40d1dab5.css",
   "images/couple.jpg": "images/couple.bcc60116.jpg",
   "images/individual.jpg": "images/individual.7354d22b.jpg",
   "images/katherine.jpg": "images/katherine.e6998dab.jpg",
@@ -10,5 +7,9 @@
   "images/teen.jpg": "images/teen.4d46bce7.jpg",
   "images/teens.jpeg": "images/teens.776961bb.jpeg",
   "images/teens.jpg": "images/teens.dec83d96.jpg",
+  "javascripts/app.js": "javascripts/app.f2e17d32.js",
+  "javascripts/home.js": "javascripts/home.fc3da4b4.js",
+  "stylesheets/app.css": "stylesheets/app.8e055533.css",
+  "stylesheets/include-media.css": "stylesheets/include-media.d41d8cd9.css",
   "javascripts/vendor/vue-async-data.js": "javascripts/vendor/vue-async-data.js"
 }

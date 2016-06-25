@@ -4408,6 +4408,16 @@ a.bg-danger:focus, a.bg-danger:hover {
     #home-carousel {
       min-height: 280px; } }
 
+.home-content {
+  text-align: center; }
+  @media (max-width: 768px) {
+    .home-content .btn {
+      width: 100%;
+      margin-bottom: .5rem; } }
+  @media (min-width: 769px) {
+    .home-content {
+      text-align: left; } }
+
 .brand-container {
   width: 100%; }
   .brand-container .navbar-brand {

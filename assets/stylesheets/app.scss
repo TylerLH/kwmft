@@ -17,6 +17,10 @@ $footer-min-height: 300px;
 
 @import "bootstrap/scss/bootstrap";
 
+$breakpoints: $grid-breakpoints;
+
+@import "./include-media";
+
 #home-carousel {
   .carousel-indicators {
     li { margin: 1px 3px; }
@@ -33,6 +37,21 @@ $footer-min-height: 300px;
   /* Small Devices, Tablets */
   @media only screen and (min-width : 768px) {
     min-height: 280px;
+  }
+}
+
+.home-content {
+  text-align: center;
+
+  @include media("<=md") {
+    .btn {
+      width: 100%;
+      margin-bottom: .5rem;
+    }
+  }
+
+  @include media(">md") {
+    text-align: left;
   }
 }
 
