@@ -2,7 +2,7 @@
 
 // Site homepage
 
-module.exports = function(req, res) {
+module.exports = function(req, res, next) {
   var model = {
     meta: {
       title: 'Katherine Warner, MA, MFT | Therapy and counseling in Palo Alto',

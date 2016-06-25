@@ -141,13 +141,12 @@ function publishAssets() {
     .pipe(cloudfront(aws))
 }
 
-function clean() {
+function cleanAssets() {
   return del(['./cdn/**/*']);
 }
 
 gulp.task('assets', ['js', 'sass']);
-gulp.task('assets:prepublish', ['assets:clean', 'assets'], prepublishAssets);
 gulp.task('assets:publish', publishAssets);
-gulp.task('assets:clean', clean);
-gulp.task('assets:deploy', ['assets:clean', 'assets', 'assets:prepublish', 'assets:publish']);
+gulp.task('assets:clean', cleanAssets);
+gulp.task('assets:deploy', ['assets:clean', 'assets', 'assets:publish']);
 gulp.task('default', ['dev-server', 'js', 'sass', 'watch']);

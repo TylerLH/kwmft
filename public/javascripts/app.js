@@ -46,3 +46,12 @@ var quickContact = new Vue({
     }
   }
 });
+
+$('.contact-cta').click(function (e) {
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Contact',
+    eventAction: 'ctaClick',
+    transport: 'beacon'
+  });
+});
