@@ -1,4 +1,4 @@
-const bookingWidget = new TimekitBooking();
+const bookingWidget = new TimekitBooking()
 bookingWidget.init({
   name: 'Katherine',
   email: 'katherine@kwmft.com',
@@ -21,7 +21,7 @@ bookingWidget.init({
     filters: {
       and: [
         { exclude_weekend: { } },
-        { specific_time: {"start": 17, "end": 20, "timezone": "America/Los_angeles"}}
+        { specific_time: {'start': 17, 'end': 20, 'timezone': 'America/Los_angeles'}}
       ]
     },
     future: '4 weeks',
@@ -38,22 +38,22 @@ bookingWidget.init({
       start: '17:00',
       end: '20:00'
     },
-    allDaySlot:   false,
-    scrollTime:   '17:00:00',
-    timezone:     'local',
+    allDaySlot: false,
+    scrollTime: '17:00:00',
+    timezone: 'local'
   }
-});
+})
 
-$('.btn-schedule-consultation').click(function(e) {
-  e.preventDefault();
+$('.btn-schedule-consultation').click(function (e) {
+  e.preventDefault()
 
   // Log CTA Click Event
   ga('send', {
     hitType: 'event',
     eventCategory: 'Consultations',
     eventAction: 'ctaClick'
-  });
+  })
 
-  const $dest = $('.schedule-consultation');
-  $.scrollTo($dest, { duration: 500 });
+  const $dest = $('.schedule-consultation')
+  $.scrollTo($dest, { duration: 500 })
 })

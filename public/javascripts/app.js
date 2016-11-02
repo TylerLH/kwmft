@@ -25,12 +25,14 @@ var quickContact = new Vue({
     onMessageSent: function onMessageSent() {
       var _this = this;
 
+      analytics.track('Contact Form Submission');
       setTimeout(function () {
         _this.isLoading = false;
         _this.messageSent = true;
       }, 500);
     },
     onMessageFail: function onMessageFail(err) {
+      analytics.track('Contact Form Submission Failed');
       this.isLoading = false;
       this.error = err;
     },
